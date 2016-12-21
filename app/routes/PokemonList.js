@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PokemonDetail from './PokemonDetail';
 import {
+  ActivityIndicator,
   AppRegistry,
   ListView,
   StyleSheet,
@@ -39,27 +41,34 @@ function capitalizeFirstLetter(string) {
 class PokemonList extends Component {
   constructor() {
     super();
+
     const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.name !== r2.name});
     this.state = {
+      isLoading: true,
       dataSource: dataSource.cloneWithRows([])
     }
   }
 
   componentDidMount() {
-    getPokemon().then(pokemon => {
-      const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.name !== r2.name});
-      this.setState({
-        dataSource: dataSource.cloneWithRows(pokemon)
+    getPokemon()
+      .then(pokemon => {
+        const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.name !== r2.name});
+        this.setState({
+          dataSource: dataSource.cloneWithRows(pokemon)
+        });
+      }).finally(() => {
+        this.setState({
+          isLoading: false
+        });
       });
-    });
   }
 
   renderRow = (rowData, sectionId, rowId) => {
     return (
-      <TouchableHighlight underlayColor='#bada55' onPress={this._onPressButton}>
+      <TouchableHighlight underlayColor='#bada55'>
         <View>
           <View style={styles.rowContainer}>
-            <View style={styles.textContainer}>
+            <View style={styles.container}>
               <Text style={styles.id}>{rowData.id}</Text>
               <Text style={styles.name} numberOfLines={1}>{rowData.name}</Text>
             </View>
@@ -70,12 +79,26 @@ class PokemonList extends Component {
     )
   }
 
+  rowPressed = (pokemon) => {
+    // this.props.navigator.push({
+    //   id: 'detail',
+    //   pokemon: pokemon
+    // });
+  }
+
   render() {
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow}
-      />
+      <View style={styles.container}>
+        <ActivityIndicator 
+          style={styles.float}
+          animating={this.state.isLoading}
+          size='large'
+        />
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow}
+        />
+      </View>
     );
   }
 }
@@ -86,7 +109,7 @@ const styles = StyleSheet.create({
     height: 80,
     marginRight: 10
   },
-  textContainer: {
+  container: {
     flex: 1
   },
   separator: {
@@ -105,6 +128,14 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
     padding: 10
+  },
+  float: {
+    position: 'absolute',
+    margin: null,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
   }
 });
 

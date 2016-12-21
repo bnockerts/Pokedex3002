@@ -1,9 +1,21 @@
 import React from 'react';
-import PokemonList from './components/PokemonList';
+import { Navigator, Text } from 'react-native';
+import PokemonList from './routes/PokemonList';
+import PokemonDetail from './routes/PokemonDetail';
 
 const App = () => {
   return (
-    <PokemonList />
+    <Navigator
+      initialRoute={{ id: 'list', component: PokemonList }}
+      renderScene={(route, navigator) => {
+        switch (route.id) {
+          case 'list':
+            return <PokemonList navigator={navigator} />;
+          case 'detail':
+            return <PokemonDetail navigator={navigator} pokemon={route.pokemon} />;
+        }
+      }}
+    />
   );
 };
 
