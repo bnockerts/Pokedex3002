@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigator, Text } from 'react-native';
+import { Navigator } from 'react-native';
 import PokemonList from './routes/PokemonList';
 import PokemonDetail from './routes/PokemonDetail';
 
