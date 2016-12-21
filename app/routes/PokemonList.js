@@ -65,7 +65,7 @@ class PokemonList extends Component {
 
   renderRow = (rowData, sectionId, rowId) => {
     return (
-      <TouchableHighlight underlayColor='#bada55'>
+      <TouchableHighlight underlayColor='#bada55' onPress={() => this.rowPressed(rowData)}>
         <View>
           <View style={styles.rowContainer}>
             <View style={styles.container}>
@@ -80,10 +80,10 @@ class PokemonList extends Component {
   }
 
   rowPressed = (pokemon) => {
-    // this.props.navigator.push({
-    //   id: 'detail',
-    //   pokemon: pokemon
-    // });
+    this.props.navigator.push({
+      id: 'detail',
+      pokemon: pokemon
+    });
   }
 
   render() {
