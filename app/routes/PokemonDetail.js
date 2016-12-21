@@ -1,53 +1,78 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import Spinner from '../components/Spinner';
 import {
   AppRegistry,
-  ListView,
   StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
+  Text
 } from 'react-native';
 
 async function getPokemonDetail(url) {
   try {
     let response = await fetch(url);
     let responseJson = await response.json();
-    // let result = [ { url: 'https://pokeapi.co/api/v2/pokemon/1/',
-	  //   name: 'bulbasaur' },
-	  // { url: 'https://pokeapi.co/api/v2/pokemon/2/', name: 'ivysaur' },
-	  // { url: 'https://pokeapi.co/api/v2/pokemon/3/',
-	  //   name: 'venusaur' },
-	  // { url: 'https://pokeapi.co/api/v2/pokemon/4/',
-	  //   name: 'charmander' }, ];
 
     return responseJson;
-    // return result;
   } catch(err) {
     console.error(err);
   }
 }
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 class PokemonDetail extends Component {
+  static propTypes = {
+    pokemon: PropTypes.shape({
+      url: PropTypes.string.isRequired
+    })
+  }
+
+  constructor() {
+    super();
+
+    this.state = {
+      pokemonDetail: null,
+      isLoading: true
+    };
+  }
+
   componentDidMount() {
     const pokemon = this.props.pokemon;
-    getPokemonDetail(pokemon.url).then(pokemonDetail => {
-        console.log(pokemonDetail);
-    });
+    getPokemonDetail(pokemon.url)
+      .then(pokemonDetail => {
+        this.setState({
+          pokemonDetail
+        });
+      })
+      .finally(() => {
+        this.setState({
+          isLoading: false
+        });
+      });
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <Spinner isLoading={this.state.isLoading} />
+      );
+    }
+
     return (
-      <Text>HI</Text>
-    )
+      <Text>Name:</Text>
+    );
   }
 }
 
 const styles = StyleSheet.create({
-    
+  container: {
+    flex: 1
+  },
+  float: {
+    position: 'absolute',
+    margin: null,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  }
 });
 
 export default PokemonDetail;

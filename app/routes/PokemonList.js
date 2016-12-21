@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Spinner from '../components/Spinner';
 import PokemonDetail from './PokemonDetail';
 import {
-  ActivityIndicator,
   AppRegistry,
   ListView,
   StyleSheet,
@@ -10,17 +10,12 @@ import {
   View
 } from 'react-native';
 
+const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
+
 async function getPokemon() {
   try {
-    let response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=50');
+    let response = await fetch(API_URL);
     let responseJson = await response.json();
-    // let result = [ { url: 'https://pokeapi.co/api/v2/pokemon/1/',
-	  //   name: 'bulbasaur' },
-	  // { url: 'https://pokeapi.co/api/v2/pokemon/2/', name: 'ivysaur' },
-	  // { url: 'https://pokeapi.co/api/v2/pokemon/3/',
-	  //   name: 'venusaur' },
-	  // { url: 'https://pokeapi.co/api/v2/pokemon/4/',
-	  //   name: 'charmander' }, ];
 
     const indicator = 'pokemon/';
     return responseJson.results.map(pokemon => {
@@ -28,7 +23,6 @@ async function getPokemon() {
       pokemon.name = capitalizeFirstLetter(pokemon.name);
       return pokemon;
     });
-    // return result;
   } catch(err) {
     console.error(err);
   }
@@ -46,15 +40,14 @@ class PokemonList extends Component {
     this.state = {
       isLoading: true,
       dataSource: dataSource.cloneWithRows([])
-    }
+    };
   }
 
   componentDidMount() {
     getPokemon()
       .then(pokemon => {
-        const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.name !== r2.name});
         this.setState({
-          dataSource: dataSource.cloneWithRows(pokemon)
+          dataSource: this.state.dataSource.cloneWithRows(pokemon)
         });
       }).finally(() => {
         this.setState({
@@ -76,39 +69,33 @@ class PokemonList extends Component {
           <View style={styles.separator}/>
         </View>
       </TouchableHighlight>
-    )
+    );
   }
 
   rowPressed = (pokemon) => {
     this.props.navigator.push({
       id: 'detail',
-      pokemon: pokemon
+      pokemon
     });
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <Spinner isLoading={this.state.isLoading} />
+      );
+    }
+
     return (
-      <View style={styles.container}>
-        <ActivityIndicator 
-          style={styles.float}
-          animating={this.state.isLoading}
-          size='large'
-        />
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
-        />
-      </View>
+      <ListView
+        dataSource={this.state.dataSource}
+        renderRow={this.renderRow}
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
-  thumb: {
-    width: 80,
-    height: 80,
-    marginRight: 10
-  },
   container: {
     flex: 1
   },
@@ -129,13 +116,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 10
   },
-  float: {
-    position: 'absolute',
-    margin: null,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0
+  spinner: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
