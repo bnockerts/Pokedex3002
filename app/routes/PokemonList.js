@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from '../components/Spinner';
 import PokemonDetail from './PokemonDetail';
-import { pokemonListData } from '../utils'
+import { getPokemon } from '../utils'
 import {
   AppRegistry,
   ListView,
@@ -10,31 +10,6 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
-
-const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
-
-async function getPokemon() {
-  try {
-    // let response = await fetch(API_URL);
-    // let responseJson = await response.json();
-
-    // Testing purposes
-    let responseJson = pokemonListData;
-
-    const indicator = 'pokemon/';
-    return responseJson.results.map(pokemon => {
-      pokemon.id = pokemon.url.substring(pokemon.url.indexOf(indicator) + indicator.length, pokemon.url.lastIndexOf('/'));
-      pokemon.name = capitalizeFirstLetter(pokemon.name);
-      return pokemon;
-    });
-  } catch(err) {
-    console.error(err);
-  }
-}
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 class PokemonList extends Component {
   constructor() {

@@ -1,9 +1,12 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import PokedexNavigator from './components/PokedexNavigator';
 
 const App = () => {
   return (
-    <PokedexNavigator />
+    <Provider>
+      <PokedexNavigator />
+    </Provider>
   );
 };
 
