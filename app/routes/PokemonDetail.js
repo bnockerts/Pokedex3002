@@ -3,6 +3,7 @@ import Spinner from '../components/Spinner';
 import { pokemonDetailData } from '../utils'
 import {
   AppRegistry,
+  Image,
   StyleSheet,
   Text,
   View
@@ -65,11 +66,29 @@ class PokemonDetail extends Component {
       return obj.type.name;
     }).join(', ');
 
+    let stats = pokemonDetail.stats.map(obj => {
+      return (
+        <View style={styles.statContainer} key={obj.stat.name}>
+          <Text>{obj.stat.name}</Text>
+          <Text>{obj.base_stat}</Text>
+        </View>
+      );
+    });
+
     return (
       <View style={styles.container}>
-        <Text>Name: {this.state.pokemonDetail.name}</Text>
+        <View style={styles.spriteContainer}>
+          <Image
+            style={styles.sprite}
+            source={{uri: pokemonDetail.sprites.front_default}}
+          />
+        </View>
+        <Text>Name: {pokemonDetail.name}</Text>
         <Text>{types}</Text>
         <View style={styles.separator}/>
+        <View style={styles.stats}>{stats}</View>
+        <View style={styles.separator}/>
+        <Text>Exp: {pokemonDetail.base_experience}</Text>
       </View>
     );
   }
@@ -78,11 +97,30 @@ class PokemonDetail extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     marginTop: 80
   },
+  sprite: {
+    width: 50,
+    height: 50
+  },
+  spriteContainer: {
+    alignItems: 'center'
+  },
+  statContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   separator: {
+    marginTop: 10,
+    marginBottom: 10,
+    marginRight: 10,
     height: 3,
     backgroundColor: 'maroon'
+  },
+  stats: {
+    flexDirection: 'row'
   }
 });
 
