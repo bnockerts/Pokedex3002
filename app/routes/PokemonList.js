@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from '../components/Spinner';
 import PokemonDetail from './PokemonDetail';
+import { pokemonListData } from '../utils'
 import {
   AppRegistry,
   ListView,
@@ -14,8 +15,11 @@ const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
 
 async function getPokemon() {
   try {
-    let response = await fetch(API_URL);
-    let responseJson = await response.json();
+    // let response = await fetch(API_URL);
+    // let responseJson = await response.json();
+
+    // Testing purposes
+    let responseJson = pokemonListData;
 
     const indicator = 'pokemon/';
     return responseJson.results.map(pokemon => {

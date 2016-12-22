@@ -1,15 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import Spinner from '../components/Spinner';
+import { pokemonDetailData } from '../utils'
 import {
   AppRegistry,
   StyleSheet,
-  Text
+  Text,
+  View
 } from 'react-native';
 
 async function getPokemonDetail(url) {
   try {
-    let response = await fetch(url);
-    let responseJson = await response.json();
+    // let response = await fetch(url);
+    // let responseJson = await response.json();
+    
+    // Testing purposes
+    let responseJson = pokemonDetailData;
 
     return responseJson;
   } catch(err) {
@@ -55,23 +60,29 @@ class PokemonDetail extends Component {
       );
     }
 
+    const pokemonDetail = this.state.pokemonDetail;
+    let types = pokemonDetail.types.map(obj => {
+      return obj.type.name;
+    }).join(', ');
+
     return (
-      <Text>Name:</Text>
+      <View style={styles.container}>
+        <Text>Name: {this.state.pokemonDetail.name}</Text>
+        <Text>{types}</Text>
+        <View style={styles.separator}/>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginTop: 80
   },
-  float: {
-    position: 'absolute',
-    margin: null,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0
+  separator: {
+    height: 3,
+    backgroundColor: 'maroon'
   }
 });
 
