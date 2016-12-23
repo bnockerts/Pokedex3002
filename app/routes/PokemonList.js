@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Spinner from '../components/Spinner';
 import PokemonDetail from './PokemonDetail';
 import { getPokemon } from '../utils'
+import { toggleCaught } from '../actions'
 import {
   AppRegistry,
   ListView,
   StyleSheet,
+  Switch,
   Text,
   TouchableHighlight,
   View
@@ -43,6 +45,7 @@ class PokemonList extends Component {
             <View style={styles.container}>
               <Text style={styles.id}>{rowData.id}</Text>
               <Text style={styles.name} numberOfLines={1}>{rowData.name}</Text>
+              <Switch onValueChange={(value) => toggleCaught()} />
             </View>
           </View>
           <View style={styles.separator}/>
