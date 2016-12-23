@@ -1,13 +1,8 @@
-import React, {Component} from 'react';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-
-import * as reducers from './reducers';
-import CounterApp from './counterApp';
+import reducer from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const reducer = combineReducers(reducers);
 const store = createStoreWithMiddleware(reducer);
 
-export defualt store;
+export default store;

@@ -1,8 +1,3 @@
-const initialState = {
-  id: null,
-  caught: false
-};
-
 const pokemonSingular = (state = {}, action) => {
   switch (action.type) {
     case 'TOGGLE_CAUGHT':
@@ -21,6 +16,9 @@ const pokemonSingular = (state = {}, action) => {
 
 const pokemon = (state = [], action) => {
   switch (action.type) {
+    case 'LOADED_POKEMON_LIST':
+      return action.pokemonList;
+
     case 'TOGGLE_CAUGHT':
       return state.map(obj => pokemonSingular(obj, action));
 

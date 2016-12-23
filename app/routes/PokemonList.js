@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Spinner from '../components/Spinner';
 import PokemonDetail from './PokemonDetail';
-import { getPokemon } from '../utils'
-import { toggleCaught } from '../actions'
+import { getPokemon } from '../utils';
+import { loadPokemon } from '../actions';
 import {
   AppRegistry,
   ListView,
@@ -12,6 +12,10 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
+
+console.log('\n##################\n');
+console.log(loadPokemon);
+console.log('\n##################\n');
 
 class PokemonList extends Component {
   constructor() {
@@ -25,10 +29,10 @@ class PokemonList extends Component {
   }
 
   componentDidMount() {
-    getPokemon()
+    loadPokemon()
       .then(pokemon => {
         this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(pokemon)
+          dataSource: this.state.dataSource.cloneWithRows(pokemon.pokemonList)
         });
       }).finally(() => {
         this.setState({
@@ -45,7 +49,7 @@ class PokemonList extends Component {
             <View style={styles.container}>
               <Text style={styles.id}>{rowData.id}</Text>
               <Text style={styles.name} numberOfLines={1}>{rowData.name}</Text>
-              <Switch onValueChange={(value) => toggleCaught()} />
+              <Switch onValueChange={() => this.props.dispatch(toggleCaught())} />
             </View>
           </View>
           <View style={styles.separator}/>
