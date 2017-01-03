@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import {
   Navigator
 } from 'react-native';
-import PokemonList from '../routes/PokemonList';
+import Main from '../routes/Main';
 import PokemonDetail from '../routes/PokemonDetail';
 
 class PokedexNavigator extends Component {
   renderScene = (route, navigator) => {
     switch (route.id) {
-      case 'list':
-        return <PokemonList navigator={navigator} />;
+      case 'main':
+        return <Main navigator={navigator} />;
       case 'detail':
         return <PokemonDetail navigator={navigator} pokemon={route.pokemon} />;
     }
@@ -17,7 +17,7 @@ class PokedexNavigator extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{ id: 'list', component: PokemonList }}
+        initialRoute={{ id: 'main', component: Main }}
         renderScene={this.renderScene}
       />
     )

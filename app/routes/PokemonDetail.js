@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Spinner from '../components/Spinner';
-import { getPokemonDetail } from '../utils'
+import { loadPokemonDetail } from '../actions'
 import {
   AppRegistry,
   Image,
@@ -27,7 +27,7 @@ class PokemonDetail extends Component {
 
   componentDidMount() {
     const pokemon = this.props.pokemon;
-    getPokemonDetail(pokemon.url)
+    loadPokemonDetail(pokemon.url)
       .then(pokemonDetail => {
         this.setState({
           pokemonDetail

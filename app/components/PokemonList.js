@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import Spinner from '../components/Spinner';
-import PokemonDetail from './PokemonDetail';
-import { getPokemon } from '../utils';
-import { loadPokemon } from '../actions';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import PokemonDetail from '../routes/PokemonDetail';
+import { toggleCaught } from '../actions';
 import {
   AppRegistry,
   ListView,
@@ -13,33 +12,19 @@ import {
   View
 } from 'react-native';
 
-console.log('\n##################\n');
-console.log(loadPokemon);
-console.log('\n##################\n');
-
 class PokemonList extends Component {
-  constructor() {
-    super();
-
-    const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.name !== r2.name});
-    this.state = {
-      isLoading: true,
-      dataSource: dataSource.cloneWithRows([])
-    };
+  static propTypes = {
+    pokemon: PropTypes.array.isRequired
   }
 
-  componentDidMount() {
-    loadPokemon()
-      .then(pokemon => {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(pokemon.pokemonList)
-        });
-      }).finally(() => {
-        this.setState({
-          isLoading: false
-        });
-      });
-  }
+  componentWillReceiveProps(nextProps) {
+    console.log('**************************************');
+    console.log(nextProps.pokemon);
+    console.log('**************************************');
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(nextProps.pokemon)
+    });
+  } 
 
   renderRow = (rowData, sectionId, rowId) => {
     return (
@@ -49,7 +34,10 @@ class PokemonList extends Component {
             <View style={styles.container}>
               <Text style={styles.id}>{rowData.id}</Text>
               <Text style={styles.name} numberOfLines={1}>{rowData.name}</Text>
-              <Switch onValueChange={() => this.props.dispatch(toggleCaught())} />
+              <Switch
+                value={rowData.caught}
+                onValueChange={() => this.props.dispatch(toggleCaught(rowData.id))}
+              />
             </View>
           </View>
           <View style={styles.separator}/>
@@ -66,18 +54,17 @@ class PokemonList extends Component {
   }
 
   render() {
-    if (this.state.isLoading) {
-      return (
-        <Spinner isLoading={this.state.isLoading} />
-      );
-    }
+    const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.name !== r2.name});
+    this.state = {
+      dataSource: dataSource.cloneWithRows(this.props.pokemon)
+    };
 
     return (
       <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}
       />
-    );
+    )
   }
 }
 
@@ -109,4 +96,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PokemonList;
+function mapStateToProps(state) {
+  const { pokemonList } = state;
+  const { isLoading, pokemon } = pokemonList;
+
+  return {
+    isLoading,
+    pokemon
+  }
+}
+
+export default connect(mapStateToProps)(PokemonList);
