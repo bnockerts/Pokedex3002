@@ -35,8 +35,11 @@ const pokemonList = (state = initialState, action) => {
       });
 
     case 'TOGGLE_CAUGHT':
-      state.pokemon = state.pokemon.map(obj => pokemonSingular(obj, action));
-      return state;
+      const pokemon = state.pokemon.map(obj => pokemonSingular(obj, action));
+      return Object.assign({}, state, {
+        isLoading: false,
+        pokemon: pokemon
+      });
 
     default:
       return state;

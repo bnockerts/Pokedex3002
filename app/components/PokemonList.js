@@ -17,15 +17,6 @@ class PokemonList extends Component {
     pokemon: PropTypes.array.isRequired
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('**************************************');
-    console.log(nextProps.pokemon);
-    console.log('**************************************');
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(nextProps.pokemon)
-    });
-  } 
-
   renderRow = (rowData, sectionId, rowId) => {
     return (
       <TouchableHighlight underlayColor='#bada55' onPress={() => this.rowPressed(rowData)}>
@@ -54,14 +45,9 @@ class PokemonList extends Component {
   }
 
   render() {
-    const dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.name !== r2.name});
-    this.state = {
-      dataSource: dataSource.cloneWithRows(this.props.pokemon)
-    };
-
     return (
       <ListView
-        dataSource={this.state.dataSource}
+        dataSource={this.props.dataSource}
         renderRow={this.renderRow}
       />
     )
@@ -96,13 +82,15 @@ const styles = StyleSheet.create({
   }
 });
 
+const dataSource = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2,
+});
 function mapStateToProps(state) {
   const { pokemonList } = state;
-  const { isLoading, pokemon } = pokemonList;
+  const { pokemon } = pokemonList;
 
   return {
-    isLoading,
-    pokemon
+    dataSource: dataSource.cloneWithRows(pokemon)
   }
 }
 
