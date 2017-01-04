@@ -30,7 +30,7 @@ function mapStateToProps(state) {
   return {
     isLoading,
     pokemon
-  }
+  };
 }
 
 export default connect(mapStateToProps)(Main);

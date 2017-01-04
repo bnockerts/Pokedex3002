@@ -1,4 +1,11 @@
 import { pokemonListData, pokemonDetailData } from '../utils';
+import {
+  TOGGLE_CAUGHT,
+  REQUEST_POKEMON_LIST,
+  RECEIVE_POKEMON_LIST,
+  REQUEST_POKEMON_DETAIL,
+  RECEIVE_POKEMON_DETAIL
+} from '../constants/actionTypes';
 
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
 
@@ -8,14 +15,20 @@ function capitalizeFirstLetter(string) {
 
 function toggleCaught(id) {
   return {
-    type: 'TOGGLE_CAUGHT',
+    type: TOGGLE_CAUGHT,
     id
   };
 }
 
 function requestPokemonList() {
   return {
-    type: 'REQUEST_POKEMON_LIST'
+    type: REQUEST_POKEMON_LIST
+  };
+}
+
+function requestPokemonDetail() {
+  return {
+    type: REQUEST_POKEMON_DETAIL
   };
 }
 
@@ -28,7 +41,14 @@ function receivePokemonList(json) {
   });
 
   return {
-    type: 'RECEIVE_POKEMON_LIST',
+    type: RECEIVE_POKEMON_LIST,
+    pokemon
+  };
+}
+
+function receivePokemonDetail(pokemon) {
+  return {
+    type: RECEIVE_POKEMON_DETAIL,
     pokemon
   };
 }
@@ -49,7 +69,7 @@ function fetchPokemon() {
         resolve(pokemonListData);
       }, 1000))
       .then(json => dispatch(receivePokemonList(json)));
-  }
+  };
 }
 
 function fetchPokemonIfNeeded() {
@@ -57,24 +77,25 @@ function fetchPokemonIfNeeded() {
     if (shouldFetchPokemon(getState())) {
       return dispatch(fetchPokemon());
     }
-  }
+  };
 }
 
-async function fetchPokemonDetailIfNeeded(url) {
-  // let response = await fetch(url);
-  // let pokemonDetail = await response.json();
-  
-  // Testing purposes
-  let pokemonDetail = pokemonDetailData;
+function fetchPokemonDetail(url) {
+  return dispatch => {
+    dispatch(requestPokemonDetail());
+    // return fetch(url)
+    //   .then(response => response.json())
+    //   .then(json => dispatch(receivePokemonList(json)));
 
-  return {
-    type: 'LOADED_POKEMON_DETAIL',
-    pokemonDetail
+    return new Promise(resolve => setTimeout(function() {
+        resolve(pokemonDetailData);
+      }, 1000))
+      .then(json => dispatch(receivePokemonDetail(json)));
   };
 }
 
 export default {
   toggleCaught,
   fetchPokemonIfNeeded,
-  fetchPokemonDetailIfNeeded
+  fetchPokemonDetail
 };

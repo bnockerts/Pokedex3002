@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Spinner from '../components/Spinner';
-import { loadPokemonDetail } from '../actions'
+import { fetchPokemonDetail } from '../actions'
 import {
   AppRegistry,
   Image,
@@ -16,39 +17,21 @@ class PokemonDetail extends Component {
     })
   }
 
-  constructor() {
-    super();
-
-    this.state = {
-      pokemonDetail: null,
-      isLoading: true
-    };
-  }
-
   componentDidMount() {
     const pokemon = this.props.pokemon;
-    loadPokemonDetail(pokemon.url)
-      .then(pokemonDetail => {
-        this.setState({
-          pokemonDetail
-        });
-      })
-      .finally(() => {
-        this.setState({
-          isLoading: false
-        });
-      });
+    this.props.dispatch(fetchPokemonDetail(pokemon.url));
   }
 
   render() {
-    if (this.state.isLoading) {
+    const { isLoading, pokemon } = this.props;
+
+    if (isLoading) {
       return (
-        <Spinner isLoading={this.state.isLoading} />
+        <Spinner isLoading={isLoading} />
       );
     }
 
-    const pokemonDetail = this.state.pokemonDetail;
-    let types = pokemonDetail.types.map(obj => {
+    let types = pokemon.types.map(obj => {
       return obj.type.name;
     }).join(', ');
 
@@ -57,14 +40,14 @@ class PokemonDetail extends Component {
         <View style={styles.spriteContainer}>
           <Image
             style={styles.sprite}
-            source={{uri: pokemonDetail.sprites.front_default}}
+            source={{uri: pokemon.sprites.front_default}}
           />
         </View>
-        <Text>Name: {pokemonDetail.name}</Text>
+        <Text>Name: {pokemon.name}</Text>
         <Text>{types}</Text>
         <View style={styles.separator}/>
         <View style={styles.stats}>
-          {pokemonDetail.stats.map(obj =>
+          {pokemon.stats.map(obj =>
             <View style={styles.statContainer} key={obj.stat.name}>
               <Text>{obj.stat.name}</Text>
               <Text>{obj.base_stat}</Text>
@@ -72,7 +55,7 @@ class PokemonDetail extends Component {
           )}
         </View>
         <View style={styles.separator}/>
-        <Text>Exp: {pokemonDetail.base_experience}</Text>
+        <Text>Exp: {pokemon.base_experience}</Text>
       </View>
     );
   }
@@ -108,4 +91,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PokemonDetail;
+function mapStateToProps(state) {
+  const { pokemonDetail } = state;
+  const { isLoading, pokemon } = pokemonDetail;
+
+  return {
+    isLoading,
+    pokemon
+  };
+}
+
+export default connect(mapStateToProps)(PokemonDetail);

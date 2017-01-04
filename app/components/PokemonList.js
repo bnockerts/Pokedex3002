@@ -1,7 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import PokemonDetail from '../routes/PokemonDetail';
-import { toggleCaught } from '../actions';
 import {
   AppRegistry,
   ListView,
@@ -12,14 +9,24 @@ import {
   View
 } from 'react-native';
 
+const dataSource = new ListView.DataSource({
+	rowHasChanged: (r1, r2) => r1 !== r2
+});
 class PokemonList extends Component {
   static propTypes = {
-    pokemon: PropTypes.array.isRequired
+    // loadData: PropTypes.func.isRequired,
+    onRowPress: PropTypes.func,
+    onValueChange: PropTypes.func.isRequired,
+    // dataSource: PropTypes.array.isRequired
+  }
+
+  componentDidMount() {
+    this.props.dataSource = this.props.dataSource.cloneWithRows(this.props.pokemon);
   }
 
   renderRow = (rowData, sectionId, rowId) => {
     return (
-      <TouchableHighlight underlayColor='#bada55' onPress={() => this.rowPressed(rowData)}>
+      <TouchableHighlight underlayColor='#bada55' onPress={this.props.onRowPress(rowData)}>
         <View>
           <View style={styles.rowContainer}>
             <View style={styles.container}>
@@ -27,7 +34,7 @@ class PokemonList extends Component {
               <Text style={styles.name} numberOfLines={1}>{rowData.name}</Text>
               <Switch
                 value={rowData.caught}
-                onValueChange={() => this.props.dispatch(toggleCaught(rowData.id))}
+                onValueChange={this.props.onValueChange(rowData.id)}
               />
             </View>
           </View>
@@ -37,17 +44,14 @@ class PokemonList extends Component {
     );
   }
 
-  rowPressed = (pokemon) => {
-    this.props.navigator.push({
-      id: 'detail',
-      pokemon
-    });
-  }
-
   render() {
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    }).cloneWithRows(this.props.pokemon);
+
     return (
       <ListView
-        dataSource={this.props.dataSource}
+        dataSource={dataSource}
         renderRow={this.renderRow}
       />
     )
@@ -82,16 +86,17 @@ const styles = StyleSheet.create({
   }
 });
 
-const dataSource = new ListView.DataSource({
-  rowHasChanged: (r1, r2) => r1 !== r2,
-});
-function mapStateToProps(state) {
-  const { pokemonList } = state;
-  const { pokemon } = pokemonList;
+// const dataSource = new ListView.DataSource({
+//   rowHasChanged: (r1, r2) => r1 !== r2,
+// });
+// function mapStateToProps(state) {
+//   const { pokemonList } = state;
+//   const { pokemon } = pokemonList;
 
-  return {
-    dataSource: dataSource.cloneWithRows(pokemon)
-  }
-}
+//   return {
+//     dataSource: dataSource.cloneWithRows(pokemon)
+//   }
+// }
 
-export default connect(mapStateToProps)(PokemonList);
+// export default connect(mapStateToProps)(PokemonList);
+export default PokemonList;

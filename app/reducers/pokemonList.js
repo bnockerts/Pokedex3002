@@ -1,6 +1,8 @@
+import { TOGGLE_CAUGHT, REQUEST_POKEMON_LIST, RECEIVE_POKEMON_LIST } from '../constants/actionTypes';
+
 const pokemonSingular = (state = {}, action) => {
   switch (action.type) {
-    case 'TOGGLE_CAUGHT':
+    case TOGGLE_CAUGHT:
       if (state.id !== action.id) {
         return state;
       }
@@ -19,22 +21,19 @@ const initialState = {
   pokemon: []
 };
 const pokemonList = (state = initialState, action) => {
-  console.log('**************************************');
-  console.log(action.type);
-  console.log('**************************************');
   switch (action.type) {
-    case 'REQUEST_POKEMON_LIST':
+    case REQUEST_POKEMON_LIST:
       return Object.assign({}, state, {
         isLoading: true
       });
 
-    case 'RECEIVE_POKEMON_LIST':
+    case RECEIVE_POKEMON_LIST:
       return Object.assign({}, state, {
         isLoading: false,
         pokemon: action.pokemon
       });
 
-    case 'TOGGLE_CAUGHT':
+    case TOGGLE_CAUGHT:
       const pokemon = state.pokemon.map(obj => pokemonSingular(obj, action));
       return Object.assign({}, state, {
         isLoading: false,
