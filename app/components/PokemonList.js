@@ -9,9 +9,6 @@ import {
   View
 } from 'react-native';
 
-const dataSource = new ListView.DataSource({
-	rowHasChanged: (r1, r2) => r1 !== r2
-});
 class PokemonList extends Component {
   static propTypes = {
     onRowPress: PropTypes.func.isRequired,
