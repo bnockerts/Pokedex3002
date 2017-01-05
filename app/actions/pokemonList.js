@@ -34,19 +34,23 @@ function shouldFetchPokemon(state) {
   return !pokemon || pokemon.length === 0;
 }
 
-function fetchPokemon() {
-  return dispatch => {
-    dispatch(requestPokemonList());
-    // return fetch(API_URL)
-    //   .then(response => response.json())
-    //   .then(json => dispatch(receivePokemonList(json)));
-
-    return new Promise(resolve => setTimeout(function() {
-        resolve(pokemonListData);
-      }, 1000))
-      .then(json => dispatch(receivePokemonList(json)));
-  };
+const fetchPokemon = () => async (dispatch) => {
+  dispatch(requestPokemonList());
+  let response = await fetch(API_URL);
+  let json = await response.json();
+  dispatch(receivePokemonList(json));
 }
+
+// When API is slow or doing development
+// function fetchPokemon() {
+//   return dispatch => {
+//     dispatch(requestPokemonList());
+//     return new Promise(resolve => setTimeout(function() {
+//         resolve(pokemonListData);
+//       }, 1000))
+//       .then(json => dispatch(receivePokemonList(json)));
+//   };
+// }
 
 function fetchPokemonIfNeeded() {
   return (dispatch, getState) => {

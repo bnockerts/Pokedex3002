@@ -17,19 +17,23 @@ function receivePokemonDetail(pokemon) {
   };
 }
 
-function fetchPokemonDetail(url) {
-  return dispatch => {
+const fetchPokemonDetail = (url) => async (dispatch) => {
     dispatch(requestPokemonDetail());
-    // return fetch(url)
-    //   .then(response => response.json())
-    //   .then(json => dispatch(receivePokemonList(json)));
-
-    return new Promise(resolve => setTimeout(function() {
-        resolve(pokemonDetailData);
-      }, 1000))
-      .then(json => dispatch(receivePokemonDetail(json)));
-  };
+    let response = await fetch(url);
+    let json = await response.json();
+    dispatch(receivePokemonDetail(json));
 }
+
+// When API is slow or doing development
+// function fetchPokemonDetail() {
+//   return dispatch => {
+//     dispatch(requestPokemonDetail());
+//     return new Promise(resolve => setTimeout(function() {
+//         resolve(pokemonDetailData);
+//       }, 1000))
+//       .then(json => dispatch(receivePokemonDetail(json)));
+//   };
+// }
 
 export default {
   requestPokemonDetail,
