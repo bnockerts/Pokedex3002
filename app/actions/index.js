@@ -1,7 +1,9 @@
 import navigationActions from './navigationState';
-import pokemonActions from './pokemon';
+import pokemonListActions from './pokemonList';
+import pokemonDetailActions from './pokemonDetail';
 
 module.exports = {
   ...navigationActions,
-  ...pokemonActions
+  ...pokemonListActions,
+  ...pokemonDetailActions
 };

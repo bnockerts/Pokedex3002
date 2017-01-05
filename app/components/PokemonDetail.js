@@ -1,7 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import Spinner from '../components/Spinner';
-import { fetchPokemonDetail } from '../actions'
 import {
   AppRegistry,
   Image,
@@ -11,26 +8,14 @@ import {
 } from 'react-native';
 
 class PokemonDetail extends Component {
-  static propTypes = {
-    pokemon: PropTypes.shape({
-      url: PropTypes.string.isRequired
-    })
-  }
-
-  componentDidMount() {
-    const pokemon = this.props.pokemon;
-    this.props.dispatch(fetchPokemonDetail(pokemon.url));
-  }
+  // static propTypes = {
+  //   pokemon: PropTypes.shape({
+  //     url: PropTypes.string.isRequired
+  //   })
+  // }
 
   render() {
-    const { isLoading, pokemon } = this.props;
-
-    if (isLoading) {
-      return (
-        <Spinner isLoading={isLoading} />
-      );
-    }
-
+    const { pokemon } = this.props;
     let types = pokemon.types.map(obj => {
       return obj.type.name;
     }).join(', ');
@@ -91,14 +76,4 @@ const styles = StyleSheet.create({
   }
 });
 
-function mapStateToProps(state) {
-  const { pokemonDetail } = state;
-  const { isLoading, pokemon } = pokemonDetail;
-
-  return {
-    isLoading,
-    pokemon
-  };
-}
-
-export default connect(mapStateToProps)(PokemonDetail);
+export default PokemonDetail;

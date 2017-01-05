@@ -6,7 +6,7 @@ import {
 import { connect } from 'react-redux';
 
 import PokemonListContainer from '../containers/PokemonListContainer';
-import PokemonDetail from '../components/PokemonDetail';
+import PokemonDetailContainer from '../containers/PokemonDetailContainer';
 import { navigatePop } from '../actions';
 
 const {
@@ -48,7 +48,7 @@ class AppContainer extends React.Component {
       case 'PokemonList':
         return <PokemonListContainer />
       case 'PokemonDetail':
-        return <PokemonDetail pokemon={route.pokemon} />
+        return <PokemonDetailContainer pokemon={route.pokemon} />
     }
 	}
 }

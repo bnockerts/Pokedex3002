@@ -26,7 +26,7 @@ class PokemonList extends Component {
 
   renderRow = (rowData, sectionId, rowId) => {
     return (
-      <TouchableHighlight underlayColor='#bada55' onPress={this.props.onRowPress(rowData)}>
+      <TouchableHighlight underlayColor='#bada55' onPress={() => this.props.onRowPress(rowData)}>
         <View>
           <View style={styles.rowContainer}>
             <View style={styles.container}>
@@ -34,7 +34,7 @@ class PokemonList extends Component {
               <Text style={styles.name} numberOfLines={1}>{rowData.name}</Text>
               <Switch
                 value={rowData.caught}
-                onValueChange={this.props.onValueChange(rowData.id)}
+                onValueChange={(value) => this.props.onValueChange(rowData.id)}
               />
             </View>
           </View>
@@ -86,17 +86,4 @@ const styles = StyleSheet.create({
   }
 });
 
-// const dataSource = new ListView.DataSource({
-//   rowHasChanged: (r1, r2) => r1 !== r2,
-// });
-// function mapStateToProps(state) {
-//   const { pokemonList } = state;
-//   const { pokemon } = pokemonList;
-
-//   return {
-//     dataSource: dataSource.cloneWithRows(pokemon)
-//   }
-// }
-
-// export default connect(mapStateToProps)(PokemonList);
 export default PokemonList;

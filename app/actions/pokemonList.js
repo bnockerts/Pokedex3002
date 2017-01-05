@@ -2,9 +2,7 @@ import { pokemonListData, pokemonDetailData } from '../utils';
 import {
   TOGGLE_CAUGHT,
   REQUEST_POKEMON_LIST,
-  RECEIVE_POKEMON_LIST,
-  REQUEST_POKEMON_DETAIL,
-  RECEIVE_POKEMON_DETAIL
+  RECEIVE_POKEMON_LIST
 } from '../constants/actionTypes';
 
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
@@ -26,12 +24,6 @@ function requestPokemonList() {
   };
 }
 
-function requestPokemonDetail() {
-  return {
-    type: REQUEST_POKEMON_DETAIL
-  };
-}
-
 function receivePokemonList(json) {
   const indicator = 'pokemon/';
   const pokemon = json.results.map(obj => {
@@ -46,15 +38,8 @@ function receivePokemonList(json) {
   };
 }
 
-function receivePokemonDetail(pokemon) {
-  return {
-    type: RECEIVE_POKEMON_DETAIL,
-    pokemon
-  };
-}
-
 function shouldFetchPokemon(state) {
-  const pokemon = state.pokemonList.pokemon;
+  const { pokemon } = state.pokemonList;
   return !pokemon || pokemon.length === 0;
 }
 
@@ -80,22 +65,7 @@ function fetchPokemonIfNeeded() {
   };
 }
 
-function fetchPokemonDetail(url) {
-  return dispatch => {
-    dispatch(requestPokemonDetail());
-    // return fetch(url)
-    //   .then(response => response.json())
-    //   .then(json => dispatch(receivePokemonList(json)));
-
-    return new Promise(resolve => setTimeout(function() {
-        resolve(pokemonDetailData);
-      }, 1000))
-      .then(json => dispatch(receivePokemonDetail(json)));
-  };
-}
-
 export default {
   toggleCaught,
-  fetchPokemonIfNeeded,
-  fetchPokemonDetail
+  fetchPokemonIfNeeded
 };
