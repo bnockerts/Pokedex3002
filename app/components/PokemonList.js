@@ -17,7 +17,7 @@ class PokemonList extends Component {
 
   renderRow = (rowData, sectionId, rowId) => {
     return (
-      <TouchableHighlight underlayColor='#bada55' onPress={() => this.props.onRowPress(rowData)}>
+      <TouchableHighlight underlayColor='#ddd' onPress={() => this.props.onRowPress(rowData)}>
         <View>
           <View style={styles.rowContainer}>
             <View style={styles.container}>
