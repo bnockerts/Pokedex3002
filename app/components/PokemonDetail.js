@@ -8,11 +8,17 @@ import {
 } from 'react-native';
 
 class PokemonDetail extends Component {
-  // static propTypes = {
-  //   pokemon: PropTypes.shape({
-  //     url: PropTypes.string.isRequired
-  //   })
-  // }
+  static propTypes = {
+    pokemon: PropTypes.shape({
+      types: PropTypes.array.isRequired,      
+      sprites: PropTypes.shape({
+        front_default: PropTypes.string.isRequired
+      }),
+      name: PropTypes.string.isRequired,
+      stats: PropTypes.array.isRequired,
+      base_experience: PropTypes.number.isRequired
+    })
+  }
 
   render() {
     const { pokemon } = this.props;

@@ -14,14 +14,9 @@ const dataSource = new ListView.DataSource({
 });
 class PokemonList extends Component {
   static propTypes = {
-    // loadData: PropTypes.func.isRequired,
-    onRowPress: PropTypes.func,
+    onRowPress: PropTypes.func.isRequired,
     onValueChange: PropTypes.func.isRequired,
-    // dataSource: PropTypes.array.isRequired
-  }
-
-  componentDidMount() {
-    this.props.dataSource = this.props.dataSource.cloneWithRows(this.props.pokemon);
+    pokemon: PropTypes.array.isRequired
   }
 
   renderRow = (rowData, sectionId, rowId) => {

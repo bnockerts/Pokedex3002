@@ -7,10 +7,6 @@ import {
   ListView
 } from 'react-native';
 
-const dataSource = new ListView.DataSource({
-	rowHasChanged: (r1, r2) => r1 !== r2
-});
-
 class PokemonListContainer extends Component {
 	  componentDidMount() {
 			this.props.loadData();
@@ -35,8 +31,7 @@ const mapStateToProps = (state) => {
 
   return {
     isLoading,
-    pokemon,
-		dataSource
+    pokemon
   };
 }
 
