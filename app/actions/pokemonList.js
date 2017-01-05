@@ -1,4 +1,4 @@
-import { pokemonListData, pokemonDetailData } from '../utils';
+import { pokemonListData, formatPokemonList } from '../utils';
 import {
   TOGGLE_CAUGHT,
   REQUEST_POKEMON_LIST,
@@ -6,10 +6,6 @@ import {
 } from '../constants/actionTypes';
 
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 function toggleCaught(id) {
   return {
@@ -25,12 +21,7 @@ function requestPokemonList() {
 }
 
 function receivePokemonList(json) {
-  const indicator = 'pokemon/';
-  const pokemon = json.results.map(obj => {
-    obj.id = obj.url.substring(obj.url.indexOf(indicator) + indicator.length, obj.url.lastIndexOf('/'));
-    obj.name = capitalizeFirstLetter(obj.name);
-    return obj;
-  });
+  const pokemon = formatPokemonList(json.results);
 
   return {
     type: RECEIVE_POKEMON_LIST,
@@ -67,5 +58,7 @@ function fetchPokemonIfNeeded() {
 
 export default {
   toggleCaught,
+  requestPokemonList,
+  receivePokemonList,
   fetchPokemonIfNeeded
 };

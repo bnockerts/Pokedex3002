@@ -20,6 +20,18 @@
     "react-test-renderer": "15.4.1"
   },
   "jest": {
-    "preset": "react-native"
+    "collectCoverage": true,
+    "collectCoverageFrom": ["**/*.js"],
+    "coverageDirectory": "coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "preset": "react-native",
+    "verbose": true
   }
 }

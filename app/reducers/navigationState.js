@@ -1,7 +1,7 @@
 import { PUSH_ROUTE, POP_ROUTE } from '../constants/actionTypes';
 import * as NavigationStateUtils from 'NavigationStateUtils'
 
-const initialState = {
+export const initialState = {
   index: 0,
   routes: [
     {
@@ -10,7 +10,8 @@ const initialState = {
     }
   ]
 };
-const navigationState = (state = initialState, action) => {
+
+export default navigationState = (state = initialState, action) => {
   switch (action.type) {
     case PUSH_ROUTE:
       if (state.routes[state.index].key === (action.state && action.state.key)) {
@@ -28,5 +29,3 @@ const navigationState = (state = initialState, action) => {
       return state;
   }
 };
-
-export default navigationState;

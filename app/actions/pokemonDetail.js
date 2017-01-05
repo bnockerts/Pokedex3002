@@ -32,5 +32,7 @@ function fetchPokemonDetail(url) {
 }
 
 export default {
+  requestPokemonDetail,
+  receivePokemonDetail,
   fetchPokemonDetail
 };
