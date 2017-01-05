@@ -1,9 +1,13 @@
 import React from 'react';
-import PokedexNavigator from './components/PokedexNavigator';
+import { Provider } from 'react-redux';
+import store from './store';
+import AppContainer from './containers/AppContainer';
 
 const App = () => {
   return (
-    <PokedexNavigator />
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
   );
 };
 
