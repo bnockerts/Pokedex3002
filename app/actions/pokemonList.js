@@ -64,5 +64,7 @@ export default {
   toggleCaught,
   requestPokemonList,
   receivePokemonList,
-  fetchPokemonIfNeeded
+  fetchPokemon,
+  fetchPokemonIfNeeded,
+  shouldFetchPokemon
 };
