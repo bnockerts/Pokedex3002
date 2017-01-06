@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import pokemonDetail from '../pokemonDetail';
+import PokemonDetail from '../PokemonDetail';
 import { pokemonDetailData } from '../../utils';
 
 it('renders a PokemonDetail', () => {
   const component = renderer.create(
-    <pokemonDetail pokemon={pokemonDetailData} />
+    <PokemonDetail pokemon={pokemonDetailData} />
   );
 
   expect(component).toMatchSnapshot();

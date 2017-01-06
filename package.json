@@ -23,7 +23,9 @@
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "**/*.js"
+      "**/*.js",
+      "!index.android.js",
+      "!index.ios.js"
     ],
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [

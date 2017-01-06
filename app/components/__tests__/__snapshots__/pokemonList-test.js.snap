@@ -1,259 +1,914 @@
 exports[`test renders a pokemonList 1`] = `
-<pokemonList
-  onRowPress={[Function]}
-  onValueChange={[Function]}
-  pokemon={
-    Array [
-      Object {
-        "id": "1",
-        "name": "Bulbasaur",
-        "url": "https://pokeapi.co/api/v2/pokemon/1/",
-      },
-      Object {
-        "id": "2",
-        "name": "Ivysaur",
-        "url": "https://pokeapi.co/api/v2/pokemon/2/",
-      },
-      Object {
-        "id": "3",
-        "name": "Venusaur",
-        "url": "https://pokeapi.co/api/v2/pokemon/3/",
-      },
-      Object {
-        "id": "4",
-        "name": "Charmander",
-        "url": "https://pokeapi.co/api/v2/pokemon/4/",
-      },
-      Object {
-        "id": "5",
-        "name": "Charmeleon",
-        "url": "https://pokeapi.co/api/v2/pokemon/5/",
-      },
-      Object {
-        "id": "6",
-        "name": "Charizard",
-        "url": "https://pokeapi.co/api/v2/pokemon/6/",
-      },
-      Object {
-        "id": "7",
-        "name": "Squirtle",
-        "url": "https://pokeapi.co/api/v2/pokemon/7/",
-      },
-      Object {
-        "id": "8",
-        "name": "Wartortle",
-        "url": "https://pokeapi.co/api/v2/pokemon/8/",
-      },
-      Object {
-        "id": "9",
-        "name": "Blastoise",
-        "url": "https://pokeapi.co/api/v2/pokemon/9/",
-      },
-      Object {
-        "id": "10",
-        "name": "Caterpie",
-        "url": "https://pokeapi.co/api/v2/pokemon/10/",
-      },
-      Object {
-        "id": "11",
-        "name": "Metapod",
-        "url": "https://pokeapi.co/api/v2/pokemon/11/",
-      },
-      Object {
-        "id": "12",
-        "name": "Butterfree",
-        "url": "https://pokeapi.co/api/v2/pokemon/12/",
-      },
-      Object {
-        "id": "13",
-        "name": "Weedle",
-        "url": "https://pokeapi.co/api/v2/pokemon/13/",
-      },
-      Object {
-        "id": "14",
-        "name": "Kakuna",
-        "url": "https://pokeapi.co/api/v2/pokemon/14/",
-      },
-      Object {
-        "id": "15",
-        "name": "Beedrill",
-        "url": "https://pokeapi.co/api/v2/pokemon/15/",
-      },
-      Object {
-        "id": "16",
-        "name": "Pidgey",
-        "url": "https://pokeapi.co/api/v2/pokemon/16/",
-      },
-      Object {
-        "id": "17",
-        "name": "Pidgeotto",
-        "url": "https://pokeapi.co/api/v2/pokemon/17/",
-      },
-      Object {
-        "id": "18",
-        "name": "Pidgeot",
-        "url": "https://pokeapi.co/api/v2/pokemon/18/",
-      },
-      Object {
-        "id": "19",
-        "name": "Rattata",
-        "url": "https://pokeapi.co/api/v2/pokemon/19/",
-      },
-      Object {
-        "id": "20",
-        "name": "Raticate",
-        "url": "https://pokeapi.co/api/v2/pokemon/20/",
-      },
-      Object {
-        "id": "21",
-        "name": "Spearow",
-        "url": "https://pokeapi.co/api/v2/pokemon/21/",
-      },
-      Object {
-        "id": "22",
-        "name": "Fearow",
-        "url": "https://pokeapi.co/api/v2/pokemon/22/",
-      },
-      Object {
-        "id": "23",
-        "name": "Ekans",
-        "url": "https://pokeapi.co/api/v2/pokemon/23/",
-      },
-      Object {
-        "id": "24",
-        "name": "Arbok",
-        "url": "https://pokeapi.co/api/v2/pokemon/24/",
-      },
-      Object {
-        "id": "25",
-        "name": "Pikachu",
-        "url": "https://pokeapi.co/api/v2/pokemon/25/",
-      },
-      Object {
-        "id": "26",
-        "name": "Raichu",
-        "url": "https://pokeapi.co/api/v2/pokemon/26/",
-      },
-      Object {
-        "id": "27",
-        "name": "Sandshrew",
-        "url": "https://pokeapi.co/api/v2/pokemon/27/",
-      },
-      Object {
-        "id": "28",
-        "name": "Sandslash",
-        "url": "https://pokeapi.co/api/v2/pokemon/28/",
-      },
-      Object {
-        "id": "29",
-        "name": "Nidoran-f",
-        "url": "https://pokeapi.co/api/v2/pokemon/29/",
-      },
-      Object {
-        "id": "30",
-        "name": "Nidorina",
-        "url": "https://pokeapi.co/api/v2/pokemon/30/",
-      },
-      Object {
-        "id": "31",
-        "name": "Nidoqueen",
-        "url": "https://pokeapi.co/api/v2/pokemon/31/",
-      },
-      Object {
-        "id": "32",
-        "name": "Nidoran-m",
-        "url": "https://pokeapi.co/api/v2/pokemon/32/",
-      },
-      Object {
-        "id": "33",
-        "name": "Nidorino",
-        "url": "https://pokeapi.co/api/v2/pokemon/33/",
-      },
-      Object {
-        "id": "34",
-        "name": "Nidoking",
-        "url": "https://pokeapi.co/api/v2/pokemon/34/",
-      },
-      Object {
-        "id": "35",
-        "name": "Clefairy",
-        "url": "https://pokeapi.co/api/v2/pokemon/35/",
-      },
-      Object {
-        "id": "36",
-        "name": "Clefable",
-        "url": "https://pokeapi.co/api/v2/pokemon/36/",
-      },
-      Object {
-        "id": "37",
-        "name": "Vulpix",
-        "url": "https://pokeapi.co/api/v2/pokemon/37/",
-      },
-      Object {
-        "id": "38",
-        "name": "Ninetales",
-        "url": "https://pokeapi.co/api/v2/pokemon/38/",
-      },
-      Object {
-        "id": "39",
-        "name": "Jigglypuff",
-        "url": "https://pokeapi.co/api/v2/pokemon/39/",
-      },
-      Object {
-        "id": "40",
-        "name": "Wigglytuff",
-        "url": "https://pokeapi.co/api/v2/pokemon/40/",
-      },
-      Object {
-        "id": "41",
-        "name": "Zubat",
-        "url": "https://pokeapi.co/api/v2/pokemon/41/",
-      },
-      Object {
-        "id": "42",
-        "name": "Golbat",
-        "url": "https://pokeapi.co/api/v2/pokemon/42/",
-      },
-      Object {
-        "id": "43",
-        "name": "Oddish",
-        "url": "https://pokeapi.co/api/v2/pokemon/43/",
-      },
-      Object {
-        "id": "44",
-        "name": "Gloom",
-        "url": "https://pokeapi.co/api/v2/pokemon/44/",
-      },
-      Object {
-        "id": "45",
-        "name": "Vileplume",
-        "url": "https://pokeapi.co/api/v2/pokemon/45/",
-      },
-      Object {
-        "id": "46",
-        "name": "Paras",
-        "url": "https://pokeapi.co/api/v2/pokemon/46/",
-      },
-      Object {
-        "id": "47",
-        "name": "Parasect",
-        "url": "https://pokeapi.co/api/v2/pokemon/47/",
-      },
-      Object {
-        "id": "48",
-        "name": "Venonat",
-        "url": "https://pokeapi.co/api/v2/pokemon/48/",
-      },
-      Object {
-        "id": "49",
-        "name": "Venomoth",
-        "url": "https://pokeapi.co/api/v2/pokemon/49/",
-      },
-      Object {
-        "id": "50",
-        "name": "Diglett",
-        "url": "https://pokeapi.co/api/v2/pokemon/50/",
-      },
-    ]
-  } />
+<ScrollView
+  dataSource={
+    ListViewDataSource {
+      "items": 50,
+    }
+  }
+  initialListSize={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={1000}
+  onKeyboardDidHide={undefined}
+  onKeyboardDidShow={undefined}
+  onKeyboardWillHide={undefined}
+  onKeyboardWillShow={undefined}
+  onLayout={[Function]}
+  onScroll={[Function]}
+  pageSize={1}
+  removeClippedSubviews={true}
+  renderRow={[Function]}
+  scrollEventThrottle={50}
+  scrollRenderAheadDistance={1000}
+  stickyHeaderIndices={Array []}>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            1
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Bulbasaur
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            2
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Ivysaur
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            3
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Venusaur
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            4
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Charmander
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            5
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Charmeleon
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            6
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Charizard
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            7
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Squirtle
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            8
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Wartortle
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            9
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Blastoise
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "padding": 10,
+          }
+        }>
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#48BBEC",
+                "fontSize": 25,
+                "fontWeight": "bold",
+              }
+            }>
+            10
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#656565",
+                "fontSize": 20,
+              }
+            }>
+            Caterpie
+          </Text>
+          <RCTSwitch
+            disabled={false}
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onValueChange={[Function]}
+            style={
+              Array [
+                Object {
+                  "height": 31,
+                  "width": 51,
+                },
+                undefined,
+              ]
+            }
+            value={false} />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ddd",
+            "height": 1,
+          }
+        } />
+    </View>
+  </View>
+</ScrollView>
 `;

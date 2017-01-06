@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import pokemonList from '../pokemonList';
+import PokemonList from '../PokemonList';
 import { formattedPokemonListData } from '../../utils';
 
 it('renders a pokemonList', () => {
   const component = renderer.create(
-    <pokemonList
+    <PokemonList
       onRowPress={jest.fn}
       onValueChange={jest.fn}
       pokemon={formattedPokemonListData}
