@@ -1,4 +1,4 @@
-import { pokemonListData, formatPokemonList } from '../../utils';
+import { pokemonListData, formattedPokemonListData } from '../../utils';
 import pokemonList from '../pokemonList';
 import { initialState } from '../pokemonList';
 import pokemonListActions from '../../actions/pokemonList';
@@ -11,7 +11,7 @@ it('handles unhandled action', () => {
 it('handles TOGGLE_CAUGHT action', () => {
   const testState = {
     isLoading: false,
-    pokemon: formatPokemonList(pokemonListData.results)
+    pokemon: formattedPokemonListData
   };
 
   let expectedState = JSON.parse(JSON.stringify(testState));
@@ -32,6 +32,6 @@ it('handles RECEIVE_POKEMON_LIST action', () => {
   expect(pokemonList(initialState, pokemonListActions.receivePokemonList(pokemonListData)))
     .toEqual({
       isLoading: false,
-      pokemon: formatPokemonList(pokemonListData.results)
+      pokemon: formattedPokemonListData
     });
 });
