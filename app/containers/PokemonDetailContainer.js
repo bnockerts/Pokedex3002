@@ -4,7 +4,7 @@ import Spinner from '../components/Spinner';
 import PokemonDetail from '../components/PokemonDetail';
 import { navigatePush, fetchPokemonDetail } from '../actions';
 
-class PokemonListContainer extends Component {
+export class PokemonDetailContainer extends Component {
 	  componentDidMount() {
       const { url } = this.props.pokemon;      
 			this.props.loadData(url);
@@ -53,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PokemonListContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonDetailContainer);
