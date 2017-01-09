@@ -37,18 +37,6 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		loadData: (url) => {
 			dispatch(fetchPokemonDetail(url));
-		},
-
-		onValueChange: (id) => {
-			dispatch(toggleCaught(id));
-		},
-
-		onRowPress: (pokemon) => {
-			dispatch(navigatePush({
-				key: 'PokemonDetail',
-				title: pokemon.name,
-				pokemon
-			}));
 		}
 	};
 }
