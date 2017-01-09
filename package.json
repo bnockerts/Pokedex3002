@@ -30,7 +30,8 @@
     "collectCoverageFrom": [
       "**/*.js",
       "!index.android.js",
-      "!index.ios.js"
+      "!index.ios.js",
+      "!index.windows.js"
     ],
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
