@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="edfc946c-4d5d-49d8-ba4a-c9d0bbc6b202"
+    Name="b142b56a-38d4-4d6a-83b2-e87129f4392e"
     Publisher="CN=publisher"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="edfc946c-4d5d-49d8-ba4a-c9d0bbc6b202" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="b142b56a-38d4-4d6a-83b2-e87129f4392e" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Pokedex3002</DisplayName>
