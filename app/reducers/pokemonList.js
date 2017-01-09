@@ -16,11 +16,11 @@ const pokemonSingular = (state = {}, action) => {
   }
 }
 
-const initialState = {
+export const initialState = {
   isLoading: true,
   pokemon: []
 };
-const pokemonList = (state = initialState, action) => {
+export default pokemonList = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_POKEMON_LIST:
       return Object.assign({}, state, {
@@ -44,5 +44,3 @@ const pokemonList = (state = initialState, action) => {
       return state;
   }
 }
-
-export default pokemonList;

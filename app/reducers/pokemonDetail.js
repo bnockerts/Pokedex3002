@@ -1,10 +1,10 @@
 import { REQUEST_POKEMON_DETAIL, RECEIVE_POKEMON_DETAIL } from '../constants/actionTypes';
 
-const initialState = {
+export const initialState = {
   isLoading: true,
   pokemon: {}
 };
-const pokemonDetail = (state = initialState, action) => {
+export default pokemonDetail = (state = initialState, action) => {
   switch (action.type) {
     case REQUEST_POKEMON_DETAIL:
       return Object.assign({}, state, {
@@ -27,5 +27,3 @@ const pokemonDetail = (state = initialState, action) => {
       return state;
   }
 }
-
-export default pokemonDetail;

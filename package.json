@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "react": "15.4.1",
+    "react-dom": "15.4.1",
     "react-native": "0.39.2",
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
@@ -17,9 +18,35 @@
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
     "jest": "18.0.0",
-    "react-test-renderer": "15.4.1"
+    "react-addons-test-utils": "15.4.1",
+    "react-test-renderer": "15.4.1",
+    "redux-mock-store": "^1.2.1"
   },
   "jest": {
-    "preset": "react-native"
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!index.android.js",
+      "!index.ios.js"
+    ],
+    "coverageDirectory": "coverage",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/config/jest/",
+      "/coverage/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "preset": "react-native",
+    "setupFiles": [
+      "./config/jest/globalFetch.js"
+    ],
+    "verbose": true
   }
 }

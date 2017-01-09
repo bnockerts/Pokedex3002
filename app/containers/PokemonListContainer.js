@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import Spinner from '../components/Spinner';
 import PokemonList from '../components/PokemonList';
 import { navigatePush, fetchPokemonIfNeeded, toggleCaught } from '../actions';
-import {
-  ListView
-} from 'react-native';
+import { ListView } from 'react-native';
 
-class PokemonListContainer extends Component {
+export class PokemonListContainer extends Component {
 	  componentDidMount() {
 			this.props.loadData();
 		}

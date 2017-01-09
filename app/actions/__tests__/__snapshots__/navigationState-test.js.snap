@@ -1,0 +1,26 @@
+exports[`test creates a POP_ROUTE action 1`] = `
+Object {
+  "type": "POP_ROUTE",
+}
+`;
+
+exports[`test creates a PUSH_ROUTE action, object 1`] = `
+Object {
+  "state": Object {
+    "key": "testRoute",
+    "other": "data",
+    "title": "testTitle",
+  },
+  "type": "PUSH_ROUTE",
+}
+`;
+
+exports[`test creates a PUSH_ROUTE action, string 1`] = `
+Object {
+  "state": Object {
+    "key": "testRoute",
+    "title": "testRoute",
+  },
+  "type": "PUSH_ROUTE",
+}
+`;

@@ -1,0 +1,35 @@
+exports[`test handles POP_ROUTE action, pop on index > 0 1`] = `
+Object {
+  "index": 0,
+  "routes": Array [
+    Object {
+      "key": "PokemonList",
+      "title": "List of Pokemon",
+    },
+  ],
+}
+`;
+
+exports[`test handles POP_ROUTE action, pop on index 0 1`] = `
+Object {
+  "index": 0,
+  "routes": Array [
+    Object {
+      "key": "PokemonList",
+      "title": "List of Pokemon",
+    },
+  ],
+}
+`;
+
+exports[`test handles unhandled action 1`] = `
+Object {
+  "index": 0,
+  "routes": Array [
+    Object {
+      "key": "PokemonList",
+      "title": "List of Pokemon",
+    },
+  ],
+}
+`;
