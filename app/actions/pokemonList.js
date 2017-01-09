@@ -5,7 +5,7 @@ import {
   RECEIVE_POKEMON_LIST
 } from '../constants/actionTypes';
 
-const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
+const API_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=40';
 
 function toggleCaught(id) {
   return {
